@@ -1,48 +1,23 @@
 import React from "react";
 
-const Menu = () => {
+const Menu = ({ items }) => {
   return (
     <div className="section-center">
-      <article className="menu-item">
-        <img src={"./images/item-2.jpeg"} className="photo" />
-        <div className="item-info">
-          <header>
-            <h4>Title</h4>
-            <h4 className="price">$100</h4>
-          </header>
-          <p className="item-text">I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed</p>
-        </div>
-      </article>
-      <article className="menu-item">
-        <img src={"./images/item-2.jpeg"} className="photo" />
-        <div className="item-info">
-          <header>
-            <h4>Title</h4>
-            <h4 className="price">$100</h4>
-          </header>
-          <p className="item-text">I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed</p>
-        </div>
-      </article>
-      <article className="menu-item">
-        <img src={"./images/item-2.jpeg"} className="photo" />
-        <div className="item-info">
-          <header>
-            <h4>Title</h4>
-            <h4 className="price">$100</h4>
-          </header>
-          <p className="item-text">I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed</p>
-        </div>
-      </article>
-      <article className="menu-item">
-        <img src={"./images/item-2.jpeg"} className="photo" />
-        <div className="item-info">
-          <header>
-            <h4>Title</h4>
-            <h4 className="price">$100</h4>
-          </header>
-          <p className="item-text">I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed</p>
-        </div>
-      </article>
+      {items.map((menuItem) => {
+        const { id, title, price, img, desc } = menuItem;
+        return (
+          <article key={id} className="menu-item">
+            <img src={img} alt={title} className="photo" />
+            <div className="item-info">
+              <header>
+                <h4>{title}</h4>
+                <h4 className="price">${price}</h4>
+              </header>
+              <p className="item-text">{desc}</p>
+            </div>
+          </article>
+        );
+      })}
     </div>
   );
 };
